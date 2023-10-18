@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 ul{
-    @apply m-mxy-auto w-50
+    @apply m-mxy-auto w-52
 }
 
 li{
