@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities{
+    .reset{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+
 @layer components {
   .cabecalho {
-    @apply bg-slate-800 text-white font-bold py-2 px-4 text-center text-4xl;
+    @apply bg-slate-800 text-white font-bold px-4 text-center text-4xl;
 
     & ul {
       @apply flex flex-row text-lg my-0;
@@ -22,7 +30,7 @@
   .rodape {
     @apply fixed w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
     & a {
-      @apply block hover:bg-amber-400 py-1 px-3 rounded-md transition ease-out;
+      @apply block hover:bg-amber-400 py-1 px-3 rounded-md transition duration-300 ease-out;
     }
   }
 }
