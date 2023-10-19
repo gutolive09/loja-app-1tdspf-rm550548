@@ -2,10 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-ul{
-    @apply m-mxy-auto w-52
-}
+@layer components {
+  .cabecalho {
+    @apply bg-slate-800 text-white font-bold py-2 px-4 text-center text-4xl;
 
-li{
-    @apply inline p-2 text-lg m-auto w-52
+    & ul {
+      @apply flex flex-row text-lg my-0;
+
+      & li {
+        @apply mx-auto px-4;
+
+        & a {
+          @apply block hover:bg-amber-400 py-1 px-3 rounded-md transition ease-out;
+        }
+      }
+    }
+  }
+
+  .rodape {
+    @apply fixed w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
+    & a {
+      @apply block hover:bg-amber-400 py-1 px-3 rounded-md transition ease-out;
+    }
+  }
 }
