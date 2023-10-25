@@ -9,7 +9,13 @@ module.exports = {
                 hostname: 'http.cat',
                 port:'',
                 pathname: '/images/**'
-            }
+            },
+            {
+                protocol:'https',
+                hostname: 'avatars.githubusercontent.com',
+                port:'',
+                pathname: '/u/**'
+            },
         ]
     }
 }

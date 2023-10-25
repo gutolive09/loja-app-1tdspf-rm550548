@@ -10,6 +10,9 @@ export default function Cabecalho() {
                 <Link href="/">Home</Link>
               </li>
               <li className="inline">
+                <Link href="/usuarios-git">Usuários GITHUB</Link>
+              </li>
+              <li className="inline">
                 <Link href="/produtos/tenis">Tênis</Link>
               </li>
               <li className="inline">
