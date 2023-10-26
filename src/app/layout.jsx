@@ -14,9 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br" className="">
       <body className={inter.className}>
-        <Cabecalho/>
+        <Cabecalho />
         {children}
-        <Rodape/>
+        <div className="relative">
+          <Rodape />
+        </div>
       </body>
     </html>
   );
