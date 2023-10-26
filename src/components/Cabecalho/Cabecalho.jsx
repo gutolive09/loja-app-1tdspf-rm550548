@@ -13,6 +13,9 @@ export default function Cabecalho() {
                 <Link href="/usuarios-git">Usuários GITHUB</Link>
               </li>
               <li className="inline">
+                <Link href="/consumo/eletro-view">ELETRONICOS</Link>
+              </li>
+              <li className="inline">
                 <Link href="/produtos/tenis">Tênis</Link>
               </li>
               <li className="inline">
