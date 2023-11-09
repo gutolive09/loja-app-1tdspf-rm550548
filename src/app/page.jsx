@@ -1,12 +1,21 @@
-"use client";
+'use client'
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
 
   const navigate = useRouter();
 
-  if(sessionStorage.getItem("token-user")){
+
+  useEffect(() => {
+    if(sessionStorage.getItem("token-user")){
+      navigate.refresh()
+    }
+  }, [navigate])
+  
+  
+
   return (
     <>
       <h1>HOME</h1>
@@ -22,7 +31,4 @@ export default function Home() {
 
     </>
     )
-  }else{
-    navigate.push("/login");
   }
-}

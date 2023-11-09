@@ -1,6 +1,9 @@
+'use client'
 import Link from "next/link";
 
 export default function Cabecalho() {
+
+  if(sessionStorage.getItem("token-user")){
   return (
     <header className="cabecalho">
       <div>
@@ -34,4 +37,20 @@ export default function Cabecalho() {
       </div>
     </header>
   );
+  }else{
+    return(
+    <header className="cabecalho">
+      <div>
+        <h2>MEUS PRODUTOS</h2>
+        <ul>
+          <li className="inline">
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/login">LOGIN</Link>
+          </li>
+        </ul>
+      </div>
+    </header>)
+  }
 }
