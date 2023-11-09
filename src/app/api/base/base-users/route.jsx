@@ -15,7 +15,7 @@ export async function GET(request,{params}){
 }
 
 const handleLogin = async (email, senha)=> {
-    const file = await fs.readFile(process.cwd() + "src/app/api/base/db.json", "utf8")
+    const file = await fs.readFile(process.cwd() + "/src/app/api/base/db.json", "utf8")
 
     const dados = await JSON.parse(file)
 
@@ -35,22 +35,35 @@ const handleLogin = async (email, senha)=> {
 
 }
 
+const handleCadastro = async (nome, email, senha)=> {
+    const file = await fs.readFile(process.cwd() + "/src/app/api/base/db.json", "utf8")
+    const lista = await JSON.parse(file)
+    const novoId = lista.usuarios[lista.usuarios.lenght-1].id + 1;
+    const novoUsuario = {novoId,nome,email,senha}
+    lista.usuarios.push(novoUsuario);
+
+    await fs.writeFile(process.cwd() + "/src/app/api/base/db.json", JSON.stringify(lista))
+    return novoUsuario
+
+}
+
 export async function POST(request, response){
         
-    const {info,email,senha} = await request.json()
+    const {info,id,nome,email,senha} = await request.json()
 
         //Recuperando a lista de usuários do arquivo JSON, realizando um
         //parse de arquivo para JSON.
     
         switch (info){
-
             case "login":
                 const user = await handleLogin(email, senha);
                 if(user){
                     return NextResponse.json({status:true, "user": user})
                 }
+                break
             case "cadastro":
-                return NextResponse.json({status:false})
+                const novoUsuario = await handleCadastro(nome,email,senha)
+                return NextResponse.json({status:true, "user":novoUsuario})
             default:
                 return NextResponse.json({status:false})
         }

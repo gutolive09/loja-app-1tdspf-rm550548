@@ -8,6 +8,7 @@ export default function Login() {
     const navigate = useRouter();
 
     const [usuario, setUsuario] = useState({
+        "info": "login",
         "email" : "",
         "senha" : ""
     })
@@ -54,6 +55,8 @@ export default function Login() {
 
                    //Criando o token de autenticação do usuário:
                    sessionStorage.setItem("token-user",tokenUser);
+
+                   sessionStorage.setItem("user-obj", JSON.stringify(data.user))
 
                    setTimeout(()=>{
                     //Redirecionando o usuário!
